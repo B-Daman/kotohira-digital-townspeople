@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="お問い合わせ"
+  description="琴平デジタル町民に関するお問い合わせはこちらからお願いいたします。"
+>
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black mb-4">お問い合わせ</h1>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <div class="text-3xl mb-4">👤</div>
+          <h2 class="font-bold text-lg mb-4 section-title">個人の方</h2>
+          <p class="text-text-light text-sm mb-6">デジタル町民の登録方法や特典についてのお問い合わせ</p>
+          <p class="text-sm text-text-light">
+            琴平町 企画防災課<br />
+            TEL: 0877-75-6711<br />
+            Mail: kikaku@town.kotohira.lg.jp
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <div class="text-3xl mb-4">🏢</div>
+          <h2 class="font-bold text-lg mb-4 section-title">自治体・メディアの方</h2>
+          <p class="text-text-light text-sm mb-6">視察・取材・パートナーに関するお問い合わせ</p>
+          <p class="text-sm text-text-light">
+            琴平町 企画防災課<br />
+            TEL: 0877-75-6711<br />
+            Mail: kikaku@town.kotohira.lg.jp
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,92 @@
+---
+import { siteConfig, navigation } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const navLinks = navigation.filter((item) => item.href !== "/");
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<header class="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-100">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- ロゴ -->
+      <a href={`${base}/`} class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <img src={`${base}/images/logo-main.png`} alt="" class="w-10 h-10" />
+        <span class="text-primary font-bold text-base sm:text-lg">{siteConfig.name}</span>
+      </a>
+
+      <!-- デスクトップナビ -->
+      <nav class="hidden lg:flex items-center gap-6">
+        {navLinks.map((item) => (
+          <a
+            href={`${base}${item.href}`}
+            class:list={[
+              "text-sm font-medium transition-colors hover:text-primary",
+              isActive(item.href)
+                ? "text-primary"
+                : "text-text-light",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href={siteConfig.lineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#06C755] text-white px-4 py-2 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity flex items-center gap-1"
+        >
+          LINE登録（無料）
+        </a>
+      </nav>
+
+      <!-- モバイルメニューボタン -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 text-text-light hover:text-primary transition-colors"
+        aria-label="メニューを開く"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- モバイルメニュー -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white">
+    <nav class="px-4 py-4 space-y-3">
+      {navLinks.map((item) => (
+        <a
+          href={`${base}${item.href}`}
+          class:list={[
+            "block text-sm font-medium py-2 transition-colors",
+            isActive(item.href)
+              ? "text-primary"
+              : "text-text-light hover:text-primary",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block text-center bg-[#06C755] text-white px-4 py-3 rounded-lg text-sm font-bold hover:opacity-90 transition-opacity mt-4"
+      >
+        LINE登録（無料）
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

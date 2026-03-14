@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="パートナー"
+  description="琴平デジタル町民を支えてくださるパートナー事業者のご紹介と、パートナー募集のご案内です。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black mb-4">パートナー事業者</h1>
+      <p class="text-white/80">〜 琴平デジタル町民を支えてくださる事業者の皆さま 〜</p>
+    </div>
+  </section>
+
+  <!-- パートナー制度の説明 -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <p class="text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          琴平デジタル町民は、琴平町の事業者の皆さまに月額で支えていただくことで継続運営されているサービスです。
+          <br /><br />
+          私たちは、パートナー事業者のイベント告知や集客のお手伝いを通じて、地域全体の活性化を目指しています。
+        </p>
+      </div>
+
+      <!-- 関係図 -->
+      <div class="bg-surface-alt rounded-2xl p-8 sm:p-12 max-w-2xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center mb-8">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <p class="font-bold text-primary text-lg mb-3">パートナー事業者</p>
+            <p class="text-sm text-text-light">月額で活動を支援</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <p class="font-bold text-primary text-lg mb-3">デジタル町民運営</p>
+            <p class="text-sm text-text-light">イベント告知・集客支援・SNS発信</p>
+          </div>
+        </div>
+        <div class="text-center">
+          <div class="bg-primary rounded-xl p-6">
+            <p class="font-bold text-white text-lg mb-2">デジタル町民</p>
+            <p class="text-sm text-white/80">来店・利用 ／ クーポン利用 ／ 口コミ拡散</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- パートナーになるメリット -->
+  <section class="py-16 sm:py-20 bg-surface-blue">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">パートナーになる<span class="text-primary">メリット</span></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="text-3xl mb-4">📣</div>
+          <h3 class="font-bold text-lg mb-2">2,500名超への告知</h3>
+          <p class="text-text-light text-sm">公式LINE・SNSでイベントや新商品を発信</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="text-3xl mb-4">🪙</div>
+          <h3 class="font-bold text-lg mb-2">琴平ポイントで集客</h3>
+          <p class="text-text-light text-sm">デジタル町民がポイントを使ってお店を訪問</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="text-3xl mb-4">🎬</div>
+          <h3 class="font-bold text-lg mb-2">YouTubeでの紹介</h3>
+          <p class="text-text-light text-sm">「琴平デジタル町民NOW」での紹介機会</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="text-3xl mb-4">🤝</div>
+          <h3 class="font-bold text-lg mb-2">コミュニティとの接点</h3>
+          <p class="text-text-light text-sm">定例会やイベントでの交流機会</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- パートナー募集 -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl font-black mb-6 section-title">パートナーになりませんか？</h2>
+      <p class="text-text-light mb-8 max-w-2xl mx-auto">
+        琴平町内の事業者の方で、デジタル町民の活動に興味をお持ちの方はお気軽にお問い合わせください。
+      </p>
+      <a
+        href={`${base}/contact`}
+        class="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-opacity shadow-lg"
+      >
+        パートナーについて問い合わせる
+      </a>
+    </div>
+  </section>
+</BaseLayout>

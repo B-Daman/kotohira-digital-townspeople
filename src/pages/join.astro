@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="町民になるには"
+  description="琴平デジタル町民の登録方法をご案内します。入会費・年会費無料。公式LINEから約1分で登録できます。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black mb-4">デジタル町民になるには</h1>
+      <p class="text-lg">入会費・年会費 <span class="text-accent font-black text-2xl">無料</span></p>
+      <p class="text-white/80 mt-2">気持ちひとつで、琴平の一員に。</p>
+    </div>
+  </section>
+
+  <!-- 3ステップ登録フロー -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">
+        <span class="text-primary">かんたん3ステップ</span>で登録
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 max-w-3xl mx-auto">
+        <!-- STEP 1 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center text-primary text-3xl font-black mx-auto mb-4">
+            1
+          </div>
+          <h3 class="font-bold text-lg mb-2">公式LINE<br />友だち追加</h3>
+          <p class="text-text-light text-sm">下のQRコードを読み取るか、ボタンから追加</p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center text-primary text-3xl font-black mx-auto mb-4">
+            2
+          </div>
+          <h3 class="font-bold text-lg mb-2">かんたん<br />プロフィール入力</h3>
+          <p class="text-text-light text-sm">お名前・お住まいの地域などを入力</p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="text-center">
+          <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center text-primary text-3xl font-black mx-auto mb-4">
+            3
+          </div>
+          <h3 class="font-bold text-lg mb-2">デジタル町民証<br />を受け取る</h3>
+          <p class="text-text-light text-sm">登録完了！琴平デジタル町民の一員です</p>
+        </div>
+      </div>
+
+      <p class="text-center text-text-light mb-10">所要時間: <strong>約1分</strong></p>
+
+      <!-- QRコード & CTA -->
+      <div class="bg-surface-yellow rounded-2xl p-8 sm:p-12 text-center max-w-md mx-auto">
+        <img
+          src={`${base}/images/line-qr-simple.png`}
+          alt="公式LINE QRコード"
+          class="w-48 h-48 mx-auto mb-6"
+        />
+        <p class="text-text-light mb-6">スマホで読み取るか、<br />下のボタンから追加</p>
+        <a
+          href={siteConfig.lineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-[#06C755] text-white px-8 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-opacity shadow-lg w-full sm:w-auto"
+        >
+          公式LINEで友だち追加する
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="py-16 sm:py-20 bg-primary text-white text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black mb-6">まずは公式LINEから登録！</h2>
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[#06C755] text-white px-10 py-5 rounded-full text-xl font-bold hover:opacity-90 transition-opacity shadow-xl"
+      >
+        デジタル町民になる（無料）
+      </a>
+    </div>
+  </section>
+</BaseLayout>

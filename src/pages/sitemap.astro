@@ -1,0 +1,90 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="サイトマップ"
+  description="琴平デジタル町民公式サイトのサイトマップです。"
+>
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black">サイトマップ</h1>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-3xl mx-auto">
+        <!-- メインページ -->
+        <div>
+          <h2 class="font-bold text-lg text-primary mb-4">メインページ</h2>
+          <ul class="space-y-4">
+            <li>
+              <a href={`${base}/`} class="font-bold text-primary hover:underline">トップページ</a>
+            </li>
+            <li>
+              <a href={`${base}/about`} class="font-bold text-primary hover:underline">デジタル町民とは</a>
+              <ul class="ml-4 mt-2 space-y-1 text-sm text-text-light">
+                <li>コンセプト・ストーリー</li>
+                <li>よくある質問（FAQ）</li>
+              </ul>
+            </li>
+            <li>
+              <a href={`${base}/join`} class="font-bold text-primary hover:underline">町民になるには</a>
+              <ul class="ml-4 mt-2 space-y-1 text-sm text-text-light">
+                <li>登録ステップ（3ステップ）</li>
+                <li>公式LINE登録</li>
+              </ul>
+            </li>
+            <li>
+              <a href={`${base}/benefits`} class="font-bold text-primary hover:underline">特典・ポイント</a>
+              <ul class="ml-4 mt-2 space-y-1 text-sm text-text-light">
+                <li>5つの特典</li>
+                <li>協力店舗・スポット一覧</li>
+              </ul>
+            </li>
+            <li>
+              <a href={`${base}/activities`} class="font-bold text-primary hover:underline">活動・お知らせ</a>
+              <ul class="ml-4 mt-2 space-y-1 text-sm text-text-light">
+                <li>プロジェクト一覧</li>
+                <li>イベントカレンダー（定例含む）</li>
+                <li>お知らせ一覧</li>
+                <li>メディア掲載情報</li>
+              </ul>
+            </li>
+            <li>
+              <a href={`${base}/partners`} class="font-bold text-primary hover:underline">パートナー</a>
+              <ul class="ml-4 mt-2 space-y-1 text-sm text-text-light">
+                <li>パートナー事業者一覧</li>
+                <li>パートナーになるメリット</li>
+                <li>パートナー募集</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- その他 -->
+        <div>
+          <h2 class="font-bold text-lg text-primary mb-4">その他</h2>
+          <ul class="space-y-4">
+            <li>
+              <a href={`${base}/contact`} class="font-bold text-primary hover:underline">お問い合わせ</a>
+              <ul class="ml-4 mt-2 space-y-1 text-sm text-text-light">
+                <li>個人の方</li>
+                <li>自治体・メディアの方</li>
+              </ul>
+            </li>
+            <li>
+              <a href={`${base}/privacy`} class="font-bold text-primary hover:underline">プライバシーポリシー</a>
+            </li>
+            <li>
+              <a href={`${base}/sitemap`} class="font-bold text-primary hover:underline">サイトマップ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

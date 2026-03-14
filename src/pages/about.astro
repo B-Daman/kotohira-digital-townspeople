@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="デジタル町民とは"
+  description="琴平デジタル町民は、どこに住んでいても琴平町の一員になれる新しいつながりのかたちです。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black mb-4">琴平デジタル町民とは</h1>
+      <p class="text-white/80">〜 住む場所を超えた、新しいつながり 〜</p>
+    </div>
+  </section>
+
+  <!-- ストーリー -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center text-base sm:text-lg leading-loose mb-12 max-w-3xl mx-auto">
+        <p>かつてピーク時<strong>520万人</strong>の観光客が訪れた琴平町。</p>
+        <p>しかし、その数は大きく減少。</p>
+        <p>2024年、人口<strong>7,838人</strong>・3,583世帯の</p>
+        <p><strong>消滅可能性自治体</strong>に指定されました。</p>
+        <br />
+        <p>「<strong>一生に一度じゃなく、何度でも！</strong>」</p>
+        <p>「<strong>観光地を訪れる</strong>」から「<strong>観光地と関わる</strong>」へ。</p>
+        <br />
+        <p>2024年2月、琴平バス株式会社が</p>
+        <p>加盟店さまと地域の皆さまのご協力のもと、</p>
+        <p>「<span class="text-primary font-bold">琴平デジタル町民</span>」を立ち上げました。</p>
+        <br />
+        <p>LINE公式アカウントで登録するだけで、</p>
+        <p>県外・海外からでも琴平に想いを寄せる人が</p>
+        <p>「デジタル町民」として琴平の一員になれます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3つの特徴 -->
+  <section class="py-16 sm:py-20 bg-surface-blue">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">3つの特徴</h2>
+      <div class="space-y-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-xl font-bold text-primary mb-3">① どこにいても「琴平の一員」</h3>
+          <p class="text-text-light">公式LINEで全国どこからでも登録。琴平のイベント情報やおトクなクーポンが届きます。訪問時にはチェックイン機能で滞在情報を登録できます。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-xl font-bold text-primary mb-3">② 来るたびに「おトク」</h3>
+          <p class="text-text-light">琴平mobi 1回無料、パートナー店舗で使えるクーポン、穴場スポットを巡るスタンプラリーなど、デジタル町民限定の特典が満載です。</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-xl font-bold text-primary mb-3">③ まちづくりに「参加」</h3>
+          <p class="text-text-light">デジタル町民投票でまちづくりに参加。讃岐おでん、竹あかり、琴平山博覧会などのプロジェクトの担い手になれます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">よくある質問</h2>
+      <div class="space-y-4 max-w-3xl mx-auto">
+        <details class="bg-surface-alt rounded-xl p-6 border border-gray-100">
+          <summary class="font-bold cursor-pointer">登録に費用はかかりますか？</summary>
+          <p class="mt-4 text-text-light">無料です。入会費・年会費はかかりません。</p>
+        </details>
+        <details class="bg-surface-alt rounded-xl p-6 border border-gray-100">
+          <summary class="font-bold cursor-pointer">琴平町に行ったことがなくても登録できますか？</summary>
+          <p class="mt-4 text-text-light">はい。全国どこからでも登録できます。</p>
+        </details>
+        <details class="bg-surface-alt rounded-xl p-6 border border-gray-100">
+          <summary class="font-bold cursor-pointer">琴平ポイントとは何ですか？</summary>
+          <p class="mt-4 text-text-light">活動に参加すると貯まるポイントです。高速バス、宿泊、飲食などに使えます。</p>
+        </details>
+        <details class="bg-surface-alt rounded-xl p-6 border border-gray-100">
+          <summary class="font-bold cursor-pointer">退会はできますか？</summary>
+          <p class="mt-4 text-text-light">はい。LINEの友だち解除で退会できます。</p>
+        </details>
+        <details class="bg-surface-alt rounded-xl p-6 border border-gray-100">
+          <summary class="font-bold cursor-pointer">個人情報は安全ですか？</summary>
+          <p class="mt-4 text-text-light">個人情報保護法に基づき適切に管理しています。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-20 bg-primary text-white text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black mb-6">デジタル町民になりませんか？</h2>
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[#06C755] text-white px-10 py-5 rounded-full text-xl font-bold hover:opacity-90 transition-opacity shadow-xl"
+      >
+        デジタル町民になる（無料）
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0068B7;
+  --color-primary-light: #338EC9;
+  --color-primary-dark: #004A85;
+  --color-accent: #FFE600;
+  --color-accent-light: #FFF04D;
+  --color-accent-dark: #E6CF00;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F7F8FA;
+  --color-surface-blue: #E8F0FA;
+  --color-surface-yellow: #FFFDE6;
+  --color-text: #222222;
+  --color-text-light: #444444;
+  --color-text-lighter: #777777;
+  --font-sans: "Noto Sans JP", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  line-height: 1.8;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* セクションタイトル装飾 */
+.section-title {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  margin: 8px auto 0;
+}

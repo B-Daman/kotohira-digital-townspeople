@@ -1,0 +1,81 @@
+---
+import { siteConfig, navigation, socialLinks } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<footer class="bg-primary-dark text-white/80">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- ブランド -->
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <img src={`${base}/images/logo-main.png`} alt="" class="w-10 h-10 bg-white rounded-full p-0.5" />
+          <span class="text-white font-bold text-lg">{siteConfig.name}</span>
+        </div>
+        <p class="text-sm leading-relaxed">
+          {siteConfig.description}
+        </p>
+      </div>
+
+      <!-- ナビゲーション -->
+      <div>
+        <h3 class="text-white font-bold text-sm mb-4">ページ一覧</h3>
+        <ul class="space-y-2">
+          {navigation.map((item) => (
+            <li>
+              <a
+                href={`${base}${item.href}`}
+                class="text-sm hover:text-accent transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a
+              href={`${base}/contact`}
+              class="text-sm hover:text-accent transition-colors"
+            >
+              お問い合わせ
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SNS -->
+      <div>
+        <h3 class="text-white font-bold text-sm mb-4">SNS</h3>
+        <ul class="space-y-2">
+          {socialLinks.map((link) => (
+            <li>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  "text-sm hover:text-accent transition-colors",
+                  link.primary && "font-bold text-accent",
+                ]}
+              >
+                {link.name} {link.primary ? "★" : "↗"}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/20 mt-8 pt-8">
+      <p class="text-center text-sm mb-2">
+        運営: 琴平町 企画防災課 × 地域おこし協力隊
+      </p>
+      <p class="text-center text-sm mb-4">
+        <a href={`${base}/privacy`} class="hover:text-accent transition-colors">プライバシーポリシー</a>
+        <span class="mx-2">／</span>
+        <a href={`${base}/sitemap`} class="hover:text-accent transition-colors">サイトマップ</a>
+      </p>
+      <p class="text-center text-sm">&copy; {new Date().getFullYear()} {siteConfig.name}</p>
+    </div>
+  </div>
+</footer>

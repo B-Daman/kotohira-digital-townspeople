@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EventCard from "../components/EventCard.astro";
+import { siteConfig } from "../data/siteConfig";
+import { events } from "../data/events";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="活動・お知らせ"
+  description="琴平デジタル町民のプロジェクト一覧、イベント情報、お知らせをご覧いただけます。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black mb-4">活動・お知らせ</h1>
+      <p class="text-white/80">〜 琴平を一緒につくる仲間を募集中 〜</p>
+    </div>
+  </section>
+
+  <!-- プロジェクト一覧 -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">プロジェクト</h2>
+      <div class="space-y-8 max-w-3xl mx-auto">
+        <!-- 琴平山博覧会 -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 border-t-[3px] border-t-accent">
+          <div class="bg-primary/10 p-8 text-center">
+            <span class="text-5xl">🎨</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">琴平山博覧会</h3>
+            <p class="text-sm text-text-light mb-4">2025年9月〜12月 ／ 琴平町内各所</p>
+            <p class="text-text-light mb-4">
+              146年ぶりに復刻した琴平の一大イベント。アートで関係人口を獲得する取り組みとして日経新聞にも掲載。
+              紫舟の書道展、台湾アーティストのインスタレーション、宮脇慎太郎の写真展、音楽フェス「交差点 KOSATEN」など多彩なプログラムを展開。
+              NFTチケット販売やデジタル町民との連携で、来町後もオンラインで町とつながり続けられる仕組みを構築。
+              クラウドファンディングは目標の110%を達成しました。
+            </p>
+          </div>
+        </div>
+
+        <!-- 竹あかり -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 border-t-[3px] border-t-accent">
+          <div class="bg-primary/10 p-8 text-center">
+            <span class="text-5xl">🎋</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">竹あかりプロジェクト</h3>
+            <p class="text-sm text-text-light mb-4">2025年11月9日〜12月25日 ／ 金刀比羅宮表参道</p>
+            <p class="text-text-light mb-4">
+              CHIKAKEN（池田親生氏）プロデュースによる竹あかりプロジェクト。
+              金刀比羅宮表参道に約150基の竹あかりを設置し、毎晩17:30〜22:00に点灯。
+              放置竹林問題をリソースに変えつつ、「夜の魅力・滞在理由の不足」を解消して宿泊促進を図る取り組み。
+              琴平山博覧会の一環として実施されました。
+            </p>
+          </div>
+        </div>
+
+        <!-- 讃岐おでん -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 border-t-[3px] border-t-accent">
+          <div class="bg-primary/10 p-8 text-center">
+            <span class="text-5xl">🍢</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">讃岐おでんプロジェクト</h3>
+            <p class="text-sm text-text-light mb-4">毎月22日定例 + 営業日 ／ 琴平町内</p>
+            <p class="text-text-light mb-4">
+              うどん屋にも置かれる讃岐の地元文化を再定義し、新たなB級グルメとして「讃岐おでん」を開発するプロジェクト。
+              仕入れ・調理・営業をメンバーで分担。ファンが開発に参画することで愛着を深め、再訪を促進します。
+            </p>
+            <div class="flex gap-4 text-sm flex-wrap">
+              <span class="bg-surface-alt px-3 py-1 rounded-full">参加条件: デジタル町民</span>
+              <span class="bg-primary/10 px-3 py-1 rounded-full text-primary font-bold">報酬: 琴平ポイント</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 琴平デジタル町民NOW -->
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 border-t-[3px] border-t-accent">
+          <div class="bg-primary/10 p-8 text-center">
+            <span class="text-5xl">🎬</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">琴平デジタル町民NOW</h3>
+            <p class="text-sm text-text-light mb-4">毎週月曜 20:00〜 ／ YouTube ライブ配信</p>
+            <p class="text-text-light mb-4">
+              地域おこし協力隊とVTuberがタッグを組み、琴平の魅力を発信するYouTube番組。
+              ゲストインタビューコーナー「ことひら縁録」も好評配信中。
+            </p>
+            <a
+              href="https://www.youtube.com/@kotohiradigitaltownresidents"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block text-primary font-bold hover:underline"
+            >
+              YouTubeチャンネルを見る →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- イベント一覧 -->
+  <section class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">イベント一覧</h2>
+      <p class="text-text-light text-center mb-8">カードをクリックすると詳細が表示されます</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {events.map((event) => (
+          <EventCard event={event} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- モーダル制御スクリプト -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // カードクリックでモーダル表示
+      document.querySelectorAll(".event-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const eventId = card.getAttribute("data-event-id");
+          const modal = document.getElementById(`modal-${eventId}`);
+          if (modal) {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+
+      // 閉じるボタン・オーバーレイクリックでモーダル非表示
+      document.querySelectorAll(".event-modal").forEach((modal) => {
+        const closeBtn = modal.querySelector(".modal-close");
+        const overlay = modal.querySelector(".modal-overlay");
+
+        const closeModal = () => {
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+          document.body.style.overflow = "";
+        };
+
+        closeBtn?.addEventListener("click", closeModal);
+        overlay?.addEventListener("click", closeModal);
+      });
+
+      // ESCキーでモーダル非表示
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelectorAll(".event-modal:not(.hidden)").forEach((modal) => {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+          });
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  </script>
+
+  <!-- お知らせ一覧 -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">お知らせ</h2>
+      <div class="space-y-4 max-w-2xl mx-auto">
+        <p class="text-text-light text-center">準備中です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- メディア掲載 -->
+  <section class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-12 section-title">メディア掲載</h2>
+      <div class="space-y-4 max-w-2xl mx-auto">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <p class="text-sm text-text-light mb-1">2025年6月</p>
+          <p class="font-bold">JAL機内誌 SKYWARD</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <p class="text-sm text-text-light mb-1">2025年9月</p>
+          <p class="font-bold">日本経済新聞「香川・琴平で146年ぶり琴平山博覧会、アートで関係人口獲得」</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <p class="text-sm text-text-light mb-1">2024年2月</p>
+          <p class="font-bold">KSB瀬戸内海放送「リピーターを増やせ！『デジタル町民』システム」</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-20 bg-primary text-white text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black mb-6">一緒に琴平をつくりませんか？</h2>
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[#06C755] text-white px-10 py-5 rounded-full text-xl font-bold hover:opacity-90 transition-opacity shadow-xl"
+      >
+        デジタル町民になる（無料）
+      </a>
+    </div>
+  </section>
+</BaseLayout>

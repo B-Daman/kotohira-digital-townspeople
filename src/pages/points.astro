@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="琴平ポイント"
+  description="琴平ポイントは、琴平町周辺でお手伝いをしてポイント（トークン）を獲得できる仕組みです。貯めたポイントは、地域の遊休資産や特別な体験と交換できます。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-primary text-white py-10 sm:py-12 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h1 class="text-3xl sm:text-4xl font-black mb-4">琴平ポイント</h1>
+      <p class="text-white/80">お手伝いでためる。体験でつかう。</p>
+    </div>
+  </section>
+
+  <!-- 琴平ポイントとは -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-8 section-title">
+        琴平ポイント<span class="text-primary">とは</span>
+      </h2>
+      <p class="text-text-light text-center mb-8 max-w-2xl mx-auto">
+        琴平ポイントは、琴平町周辺でお手伝いをしてポイント（トークン）を獲得できる仕組みです。貯めたポイントは、地域の遊休資産や特別な体験と交換できます。
+      </p>
+      <p class="text-text-light text-center mb-8 max-w-2xl mx-auto">
+        公式LINEの「イベント情報を見る」→「ポイントアプリを使う」から利用可能です。
+      </p>
+      <div class="text-center">
+        <img
+          src={`${base}/images/line-screen-points.png`}
+          alt="琴平ポイント LINE画面"
+          class="rounded-2xl shadow-lg mx-auto max-w-full"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ポイントをためる -->
+  <section class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-8 section-title">
+        ポイントを<span class="text-primary">ためる</span>
+      </h2>
+      <p class="text-text-light text-center mb-8 max-w-2xl mx-auto">
+        琴平町での様々なお手伝いに参加すると、ポイントが貯まります。完了後にポイント（トークン）が支給され、琴平町周辺での移動や滞在、イベントなどで利用いただけます。
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        <div>
+          <img
+            src={`${base}/images/point-earn-kigurumi.png`}
+            alt="着ぐるみのお手伝い 3000pt"
+            class="rounded-2xl shadow-sm w-full"
+          />
+        </div>
+        <div>
+          <img
+            src={`${base}/images/point-earn-chirashi.png`}
+            alt="チラシ配布 2000pt"
+            class="rounded-2xl shadow-sm w-full"
+          />
+        </div>
+        <div>
+          <img
+            src={`${base}/images/point-earn-photo.png`}
+            alt="写真撮影 5000pt"
+            class="rounded-2xl shadow-sm w-full"
+          />
+        </div>
+      </div>
+      <p class="text-text-lighter text-sm text-center mb-4">
+        ※ 上記は過去の募集例です。最新の募集はイベント一覧をご確認ください。
+      </p>
+      <div class="text-center">
+        <a
+          href={`${base}/activities`}
+          class="inline-block text-primary font-bold hover:underline"
+        >
+          イベント一覧を見る →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ポイントをつかう -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black text-center mb-8 section-title">
+        ポイントを<span class="text-primary">つかう</span>
+      </h2>
+      <p class="text-text-light text-center mb-8 max-w-2xl mx-auto">
+        貯めたポイントは、イベントのフリーパスや地域の体験と交換できます。
+      </p>
+      <div class="text-center mb-8">
+        <img
+          src={`${base}/images/point-use-freepass.png`}
+          alt="演劇フリーパスと交換 2000pt"
+          class="rounded-2xl shadow-sm mx-auto max-w-sm w-full"
+        />
+      </div>
+      <ul class="max-w-md mx-auto space-y-3 text-text-light">
+        <li class="flex items-start gap-2">
+          <span class="text-primary font-bold mt-0.5">・</span>
+          <span>高速バス（大阪⇔琴平）の乗車に使える</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary font-bold mt-0.5">・</span>
+          <span>コトリ宿泊に使える</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary font-bold mt-0.5">・</span>
+          <span>地域の飲食店でのお食事に使える</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary font-bold mt-0.5">・</span>
+          <span>イベントチケットとの交換に使える</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-primary font-bold mt-0.5">・</span>
+          <span>仲間への投げ銭に使える</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 sm:py-20 bg-primary text-white text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-black mb-4">琴平ポイントを使ってみよう</h2>
+      <p class="text-white/80 mb-8">公式LINEで友だち追加して、ポイントアプリを始めましょう。</p>
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[#06C755] text-white px-10 py-5 rounded-full text-xl font-bold hover:opacity-90 transition-opacity shadow-xl"
+      >
+        公式LINEで友だち追加する
+      </a>
+    </div>
+  </section>
+</BaseLayout>

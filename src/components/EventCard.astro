@@ -1,0 +1,110 @@
+---
+import type { Event } from "../data/events";
+
+interface Props {
+  event: Event;
+}
+
+const { event } = Astro.props;
+const isHelp = event.type === "help";
+---
+
+<button
+  class="event-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 text-left w-full hover:shadow-md transition-shadow cursor-pointer"
+  data-event-id={event.id}
+>
+  <!-- ヘッダー -->
+  <div class:list={[
+    "px-4 py-3 flex items-center gap-2",
+    isHelp ? "bg-accent text-primary" : "bg-primary text-white",
+  ]}>
+    <span class="text-xl">{event.icon}</span>
+    <span class="font-bold text-sm">{event.date}</span>
+    {isHelp && <span class="ml-auto text-xs font-bold bg-white/50 px-2 py-0.5 rounded-full">お手伝い募集</span>}
+  </div>
+
+  <!-- ボディ -->
+  <div class="p-4">
+    <h3 class="font-bold text-sm mb-2 line-clamp-2">{event.title}</h3>
+    <p class="text-text-lighter text-xs mb-2">📍 {event.location}</p>
+    <div class="flex items-center gap-2">
+      {event.cost === "無料" ? (
+        <span class="bg-accent/20 text-primary text-xs font-bold px-2 py-0.5 rounded-full">無料</span>
+      ) : event.cost ? (
+        <span class="text-text-light text-xs">💰 {event.cost}</span>
+      ) : null}
+      {event.reward && (
+        <span class="bg-accent/20 text-primary text-xs font-bold px-2 py-0.5 rounded-full">{event.reward}</span>
+      )}
+    </div>
+  </div>
+</button>
+
+<!-- モーダル -->
+<div
+  id={`modal-${event.id}`}
+  class="event-modal fixed inset-0 z-[100] hidden items-center justify-center p-4"
+>
+  <!-- オーバーレイ -->
+  <div class="modal-overlay absolute inset-0 bg-black/50"></div>
+
+  <!-- モーダル本体 -->
+  <div class="modal-content relative bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-xl">
+    <!-- モーダルヘッダー -->
+    <div class:list={[
+      "sticky top-0 px-6 py-4 flex items-center gap-3 z-10",
+      isHelp ? "bg-accent text-primary" : "bg-primary text-white",
+    ]}>
+      <span class="text-2xl">{event.icon}</span>
+      <div class="flex-1">
+        <p class="font-bold text-sm">{event.date} {event.time}</p>
+        {isHelp && <p class="text-xs opacity-80">お手伝い募集</p>}
+      </div>
+      <button class="modal-close text-2xl opacity-80 hover:opacity-100" aria-label="閉じる">✕</button>
+    </div>
+
+    <!-- モーダルボディ -->
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-4">{event.title}</h3>
+
+      <div class="flex flex-wrap gap-3 mb-4 text-sm">
+        <span class="bg-surface-alt px-3 py-1 rounded-full">📍 {event.location}</span>
+        {event.cost === "無料" ? (
+          <span class="bg-accent/20 px-3 py-1 rounded-full text-primary font-bold">無料</span>
+        ) : event.cost ? (
+          <span class="bg-surface-alt px-3 py-1 rounded-full">💰 {event.cost}</span>
+        ) : null}
+        {event.reward && (
+          <span class="bg-accent/20 px-3 py-1 rounded-full text-primary font-bold">報酬: {event.reward}</span>
+        )}
+        {event.capacity && (
+          <span class="bg-surface-alt px-3 py-1 rounded-full">定員: {event.capacity}</span>
+        )}
+      </div>
+
+      <div class="text-text-light text-sm leading-relaxed whitespace-pre-line">
+        {event.details}
+      </div>
+
+      {event.link && (
+        <a
+          href={event.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-primary text-white px-6 py-3 rounded-full font-bold mt-6 hover:opacity-90 transition-opacity"
+        >
+          {event.linkLabel || "詳細を見る"} →
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

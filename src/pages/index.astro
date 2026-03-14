@@ -1,0 +1,428 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  siteConfig,
+  statsHighlights,
+  threePillars,
+  partnerHighlights,
+  townspeople,
+} from "../data/siteConfig";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout>
+  <!-- セクション1: ヒーロー -->
+  <section class="relative bg-primary text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark opacity-90"></div>
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+      <img
+        src={`${base}/images/logo-main.png`}
+        alt="琴平デジタル町民ロゴ"
+        class="w-28 h-28 sm:w-36 sm:h-36 mx-auto mb-8 bg-white rounded-full p-2"
+      />
+      <h1 class="text-2xl sm:text-4xl font-black leading-tight mb-6">
+        一生に一度じゃなく、何度でも！
+      </h1>
+      <p class="text-base sm:text-lg text-white/90 max-w-xl mx-auto mb-10 leading-relaxed">
+        「観光地を訪れる」から「観光地と関わる」へ。<br />
+        琴平デジタル町民は、県外・海外からでも<br />
+        琴平に想いを寄せるあなたを迎える<br />
+        LINE公式アカウントベースの仕組みです。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={siteConfig.lineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#06C755] text-white px-8 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-opacity shadow-lg"
+        >
+          デジタル町民になる（無料）
+        </a>
+        <a
+          href="#about"
+          class="border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition-colors"
+        >
+          詳しく知る ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション2: 数字で見るデジタル町民 -->
+  <section class="bg-surface-yellow py-16 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 gap-4 text-center">
+        {statsHighlights.map((stat) => (
+          <div>
+            <p class="text-3xl sm:text-5xl font-black text-primary">
+              {stat.number}<span class="text-lg sm:text-2xl">{stat.suffix}</span>
+            </p>
+            <p class="text-sm font-bold text-text-light mt-1">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション3: デジタル町民でできること -->
+  <section id="about" class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-4 section-title">
+        デジタル町民で<span class="text-primary">できること</span>
+      </h2>
+      <p class="text-text-light text-center mb-12 max-w-lg mx-auto">
+        琴平デジタル町民には、3つの楽しみ方があります。
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {threePillars.map((pillar) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow text-center">
+            <div class="w-16 h-16 bg-primary/15 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-black text-primary">
+                {pillar.title.charAt(0)}
+              </span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-primary">{pillar.title}</h3>
+            <p class="text-text-light text-sm leading-relaxed">{pillar.description}</p>
+            <a
+              href={`${base}${pillar.link}`}
+              class="inline-block mt-6 text-primary text-sm font-bold hover:underline"
+            >
+              詳しく →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 公式LINEでできること -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-4 section-title">
+        公式LINEで<span class="text-primary">できること</span>
+      </h2>
+      <p class="text-text-light text-center mb-10 max-w-lg mx-auto">
+        LINEアプリ内で、クーポン・まち歩き・観光案内・ポイントなど、<br />
+        さまざまな機能が使えます。
+      </p>
+      <div class="flex gap-4 overflow-x-auto pb-4">
+        <img
+          src={`${base}/images/line-screen-coupons.png`}
+          alt="LINEクーポン画面"
+          class="rounded-2xl shadow-lg shrink-0 h-80 w-auto"
+        />
+        <img
+          src={`${base}/images/line-screen-tourism.png`}
+          alt="LINE観光案内画面"
+          class="rounded-2xl shadow-lg shrink-0 h-80 w-auto"
+        />
+        <img
+          src={`${base}/images/line-screen-posts.png`}
+          alt="LINE最新投稿画面"
+          class="rounded-2xl shadow-lg shrink-0 h-80 w-auto"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション4: 登録はかんたん3ステップ -->
+  <section class="py-16 sm:py-20 bg-surface-yellow">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black mb-4 section-title">
+        登録は<span class="text-primary">かんたん3ステップ</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-12">
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-primary text-2xl font-black mb-4">1</div>
+          <p class="font-bold">公式LINE<br />友だち追加</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-primary text-2xl font-black mb-4">2</div>
+          <p class="font-bold">かんたん<br />プロフィール入力</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-primary text-2xl font-black mb-4">3</div>
+          <p class="font-bold">デジタル町民証<br />を受け取る</p>
+        </div>
+      </div>
+      <p class="text-lg font-bold mb-2">入会費・年会費 <span class="text-primary text-2xl">無料！</span></p>
+      <p class="text-text-light mb-8">気持ちひとつで、琴平の一員に。</p>
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[#06C755] text-white px-8 py-4 rounded-full text-lg font-bold hover:opacity-90 transition-opacity shadow-lg"
+      >
+        公式LINEで友だち追加する
+      </a>
+    </div>
+  </section>
+
+  <!-- セクション5: 琴平の挑戦 -->
+  <section class="py-16 sm:py-20 bg-primary text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-8">
+        琴平の挑戦
+      </h2>
+      <div class="bg-white/10 rounded-2xl p-6 sm:p-10">
+        <p class="text-center text-base sm:text-lg leading-loose">
+          華やかな参道の賑わいとは裏腹に、<br />
+          人口<strong>7,838人</strong>・3,583世帯。<br />
+          2024年、<strong>消滅可能性自治体</strong>に指定。<br /><br />
+          観光客はピーク時<strong>520万人</strong>から大きく減少し、<br />
+          減少の一途を辿っています。<br /><br />
+          大切なのは、歴史あるこの町が<br />
+          どうすれば持続可能になるのか。<br />
+          そこで琴平デジタル町民の皆さんと<br />
+          一緒に考え、実現したい。<br /><br />
+          琴平バス株式会社が、加盟店さまと<br />
+          地域の皆さまのご協力をいただき運営しています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- デジタル町民の仲間たち -->
+  <section class="py-16 sm:py-20 bg-surface-yellow">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black mb-4 section-title">
+        琴平デジタル町民の<span class="text-primary">仲間たち</span>
+      </h2>
+      <p class="text-text-light mb-12">
+        琴平には、こんな人たちがいます。クリックして知ってみよう。
+      </p>
+      {townspeople.length <= 3 ? (
+        <div class="flex justify-center gap-8 flex-wrap">
+          {townspeople.map((person) => (
+            <button
+              class="townspeople-card flex flex-col items-center gap-3 cursor-pointer group"
+              data-person-id={person.id}
+            >
+              <img
+                src={`${base}${person.image}`}
+                alt={person.name}
+                class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg transition-transform group-hover:scale-110"
+              />
+              <span class="font-bold text-sm">{person.name}</span>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 justify-items-center">
+          {townspeople.map((person) => (
+            <button
+              class="townspeople-card flex flex-col items-center gap-3 cursor-pointer group"
+              data-person-id={person.id}
+            >
+              <img
+                src={`${base}${person.image}`}
+                alt={person.name}
+                class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg transition-transform group-hover:scale-110"
+              />
+              <span class="font-bold text-sm">{person.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- 仲間たちモーダル -->
+  {townspeople.map((person) => (
+    <div
+      id={`modal-person-${person.id}`}
+      class="person-modal fixed inset-0 z-[100] hidden items-center justify-center p-4"
+    >
+      <div class="modal-overlay absolute inset-0 bg-black/50"></div>
+      <div class="modal-content relative bg-white rounded-2xl max-w-md w-full max-h-[85vh] overflow-y-auto shadow-xl">
+        <div class="sticky top-0 bg-primary text-white px-6 py-4 flex items-center gap-3 z-10 rounded-t-2xl">
+          <div class="flex-1">
+            <p class="font-bold">{person.name}</p>
+          </div>
+          <button class="modal-close text-2xl opacity-80 hover:opacity-100" aria-label="閉じる">✕</button>
+        </div>
+        <div class="p-6 text-center">
+          <img
+            src={`${base}${person.image}`}
+            alt={person.name}
+            class="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg mx-auto mb-6"
+          />
+          <h3 class="text-xl font-bold mb-4">{person.name}</h3>
+          <p class="text-text-light leading-relaxed">{person.description}</p>
+        </div>
+      </div>
+    </div>
+  ))}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".townspeople-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const personId = card.getAttribute("data-person-id");
+          const modal = document.getElementById(`modal-person-${personId}`);
+          if (modal) {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+
+      document.querySelectorAll(".person-modal").forEach((modal) => {
+        const closeBtn = modal.querySelector(".modal-close");
+        const overlay = modal.querySelector(".modal-overlay");
+
+        const closeModal = () => {
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+          document.body.style.overflow = "";
+        };
+
+        closeBtn?.addEventListener("click", closeModal);
+        overlay?.addEventListener("click", closeModal);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelectorAll(".person-modal:not(.hidden)").forEach((modal) => {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+          });
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  </script>
+
+  <!-- セクション7: 活動ハイライト -->
+  <section class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-black text-center mb-12 section-title">
+        <span class="text-primary">活動</span>ハイライト
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="bg-primary/10 p-6 text-center">
+            <span class="text-3xl">🎨</span>
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-primary font-bold mb-1">2025年 146年ぶり復刻</p>
+            <h3 class="font-bold mb-2">琴平山博覧会</h3>
+            <p class="text-sm text-text-light">アートで関係人口を獲得。NFTチケット販売やデジタル町民との連携も。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="bg-primary/10 p-6 text-center">
+            <span class="text-3xl">🎋</span>
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-primary font-bold mb-1">CHIKAKEN演出</p>
+            <h3 class="font-bold mb-2">竹あかりプロジェクト</h3>
+            <p class="text-sm text-text-light">金刀比羅宮表参道に約150基の竹あかりを設置。放置竹林問題の解決も。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="bg-primary/10 p-6 text-center">
+            <span class="text-3xl">🍢</span>
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-primary font-bold mb-1">B級グルメ開発</p>
+            <h3 class="font-bold mb-2">讃岐おでんプロジェクト</h3>
+            <p class="text-sm text-text-light">地元文化を再定義。仕入れ・調理・営業をメンバーで分担。</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+          <div class="bg-primary/10 p-6 text-center">
+            <span class="text-3xl">🎬</span>
+          </div>
+          <div class="p-6">
+            <p class="text-xs text-primary font-bold mb-1">毎週月曜 20:00〜</p>
+            <h3 class="font-bold mb-2">琴平デジタル町民NOW</h3>
+            <p class="text-sm text-text-light">VTuberとコラボしたYouTubeライブ番組。</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a
+          href={`${base}/activities`}
+          class="inline-block text-primary font-bold hover:underline"
+        >
+          すべての活動・お知らせを見る →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション8: パートナー事業者 -->
+  <section class="py-16 sm:py-20 bg-surface-blue">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black mb-4 section-title">
+        <span class="text-primary">パートナー</span>事業者
+      </h2>
+      <p class="text-text-light mb-4 max-w-lg mx-auto">
+        琴平デジタル町民は、地域の事業者に支えられています。
+      </p>
+      <p class="text-text-light text-sm mb-10 max-w-lg mx-auto">
+        パートナー事業者の皆さまが月額でこの活動を応援してくださっています。<br />
+        その代わりに、私たちはイベント告知や集客のお手伝いをしています。
+      </p>
+      {partnerHighlights.length > 0 && (
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          {partnerHighlights.map((name) => (
+            <span class="bg-white px-4 py-2 rounded-full text-sm font-bold text-text border border-gray-200 shadow-sm">
+              {name}
+            </span>
+          ))}
+        </div>
+      )}
+      <a
+        href={`${base}/partners`}
+        class="inline-block text-primary font-bold hover:underline"
+      >
+        パートナーについて詳しく →
+      </a>
+    </div>
+  </section>
+
+  <!-- セクション9: YouTube -->
+  <section class="py-16 sm:py-20 bg-surface-alt">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black mb-8 section-title">
+        <span class="text-primary">琴平デジタル町民NOW</span>
+      </h2>
+      <p class="text-text-light mb-8">毎週月曜 20:00〜 YouTubeライブ配信中！</p>
+      <img
+        src={`${base}/images/flyer-app-overview.webp`}
+        alt="琴平デジタル町民アプリ紹介"
+        class="rounded-2xl shadow-lg mx-auto max-w-full mb-8"
+      />
+      <a
+        href="https://www.youtube.com/@kotohiradigitaltownresidents"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-red-600 text-white px-6 py-3 rounded-full font-bold hover:opacity-90 transition-opacity"
+      >
+        YouTubeチャンネルを見る →
+      </a>
+    </div>
+  </section>
+
+  <!-- セクション10: 最終CTA -->
+  <section class="py-16 sm:py-20 bg-primary text-white text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-black mb-6">
+        あなたも琴平デジタル町民に！
+      </h2>
+      <p class="text-white/80 mb-10">入会費・年会費 無料</p>
+      <a
+        href={siteConfig.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[#06C755] text-white px-10 py-5 rounded-full text-xl font-bold hover:opacity-90 transition-opacity shadow-xl"
+      >
+        デジタル町民になる（無料）
+      </a>
+    </div>
+  </section>
+</BaseLayout>
