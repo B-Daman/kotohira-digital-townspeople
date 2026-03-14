@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kotohira-digital-townspeople.com',
-  base: '/',
+  site: 'https://b-daman.github.io',
+  base: '/kotohira-digital-townspeople/',
   vite: {
     plugins: [tailwindcss()]
   }
